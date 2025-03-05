@@ -1,0 +1,15 @@
+:root{
+    --main-color:#1572D3;
+    --header-bg:#1572D31A
+}
+a{text-decoration: none;}
+.header-bg{background-color: var(--header-bg);}
+.main-color{color: var(--main-color);}
+.main-bg{background-color: var(--main-color);}
+.main-btn{color: white!important;
+  border-radius: 10px;
+  width: 8rem;
+ }
+    .active-link{color: var(--main-color)!important;}
+    .btn:hover{background-color: var(--main-color);}
+

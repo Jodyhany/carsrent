@@ -1,0 +1,8 @@
+   a{text-decoration: none;color: black;}
+.nav-cus{z-index: 88888;}
+   @media (max-width:768px) {
+      .custom-m{
+      margin-bottom: 10%;
+      } 
+   
+   } 
