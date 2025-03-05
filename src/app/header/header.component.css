@@ -1,6 +1,9 @@
 /* move blueunderline */
-span img{bottom: -0.2rem;}
-/* witdh for sec p  */
+span img{bottom: 0.2rem;
+    overflow: hidden;
+    width: 6rem;
+}
+    /* witdh for sec p  */
 p:nth-of-type(2){width: 95%;}
 /* app sotr i con */
 a:last-of-type img{
