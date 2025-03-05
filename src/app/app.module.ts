@@ -11,6 +11,8 @@ import { WhyUsComponent } from './why-us/why-us.component';
 import { TESTIMONIALSComponent } from './testimonials/testimonials.component';
 import { DownloadComponent } from './download/download.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './footer/footer.component';
     WhyUsComponent,
     TESTIMONIALSComponent,
     DownloadComponent,
-    FooterComponent
+    FooterComponent,
+    NotfoundComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
