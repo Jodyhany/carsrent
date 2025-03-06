@@ -1,5 +1,11 @@
-.holder{
+section{
     background-image: url(../../assets/images/tri-shape.svg);
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
 }
+/* @media (max-width:767px) {
+    .info{
+    justify-content:center!important;
+    overflow: hidden;
+    }
+} */

@@ -1,11 +1,8 @@
-/* move blueunderline */
-span img{bottom: 0.2rem;
-    overflow: hidden;
-    width: 6rem;
-}
-    /* witdh for sec p  */
-p:nth-of-type(2){width: 95%;}
-/* app sotr i con */
-a:last-of-type img{
-    width: 8rem;
-}
+header{background-image: url('../../assets/images/header-Frame.svg');  }
+  .line::before{
+    content: url('../../assets/images/line.svg');
+    position: absolute;
+    height: 0.7rem;
+    width: 0.7rem;
+    bottom: 0;
+  }

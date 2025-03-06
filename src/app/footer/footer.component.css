@@ -1,6 +1,4 @@
-footer{position: static;
+footer{
     background-color: #051C34;
-z-index: 888;
-text-transform: capitalize;
 }
 a{color: white;}
