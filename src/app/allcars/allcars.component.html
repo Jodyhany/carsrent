@@ -1,0 +1,81 @@
+<div class="container">
+  <a routerLink="/landing" class="btn main-btn main-bg rounded z-2 rounded mt-3  position-sticky top-0">back home</a>
+  <div
+    class="d-flex justify-content-center align-items-center flex-column fw-bold"
+  >
+    <p class="main-color header-bg p-3">POPULAR RENTAL DEALS</p>
+    <p class="fs-2 fw-bold">Most popular cars rental deals</p>
+  </div>
+  <div class="row justify-content-center" id="showcars">
+    <!-- change data -->
+    <div
+      class="card border-0 m-2 shadow"
+      style="width: 18rem"
+      *ngFor="let car of carlist | paginate:{
+        itemsPerPage: 8,
+        currentPage: pagenum,
+       totalItems: carlist.length 
+      }"
+    >
+      <img
+        loading="lazy"
+        [src]="car.image"
+        class="card-img-top w-100 text-center p-3"
+        [alt]="car.make"
+      />
+      <div class="card-body">
+        <!-- car name -->
+        <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+        <!-- car rating -->
+        <p class="card-text">
+          <i class="bi bi-star-fill b text-warning"></i>
+          <span class="fw-bold mx-1">4.6</span>
+          <span class="text-secondary"> (2.436 reviews)</span>
+        </p>
+        <div class="row">
+          <!-- car deatal -->
+          <div class="col-md-6 text-secondary">
+            <p class="fs-6">
+              {{ car.color }}
+            </p>
+          </div>
+          <div class="col-md-6 text-secondary">
+            <p class="fs-6">{{ car.horsepower }} hp</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-secondary">
+            <p class="fs-6">
+              {{ car.year }}
+            </p>
+          </div>
+
+          <div class="col-md-6 text-secondary">
+            <p class="fs-6">{{ car.mileage }} km</p>
+          </div>
+        </div>
+        <!-- car price -->
+        <div class="d-flex justify-content-between p-2 my-2 border-top">
+          <p class="text-secondary-emphasis">pirce</p>
+          <p class="fw-bold">
+            {{ car.price }}<span class="text-secondary">/day</span>
+          </p>
+        </div>
+        <!-- car show deatal -->
+        <div class="d-flex justify-content-center">
+          <a
+            [routerLink]="['/car', car.id]"
+            class="text-white main-bg main-btn btn w-75"
+            >rent now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+    class="d-flex justify-content-center align-items-center"
+  >
+  <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+
+  </div>

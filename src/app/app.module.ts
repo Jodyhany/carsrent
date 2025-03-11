@@ -13,6 +13,12 @@ import { DownloadComponent } from './download/download.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LandingComponent } from './landing/landing.component';
+import {HttpClient, HttpClientModule} from'@angular/common/http';
+import { AllcarsComponent } from './allcars/allcars.component';
+import { CarInfoComponent } from './car-info/car-info.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +32,16 @@ import { LandingComponent } from './landing/landing.component';
     DownloadComponent,
     FooterComponent,
     NotfoundComponent,
-    LandingComponent
+    LandingComponent,
+    AllcarsComponent,
+    CarInfoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

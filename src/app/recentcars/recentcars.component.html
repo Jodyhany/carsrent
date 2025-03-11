@@ -1,216 +1,86 @@
 
         <div class="container my-5">
-            <form class=" row shadow border-0">
-                <div class="col-md-10 col-6"> 
-                    <label for="Search"><i class="bi bi-geo-alt  fs-5"></i></label>
-                <input  class="border-0  w-75 h-100 " type="Search" id="Search" placeholder="Search By Name">
-                </div>
-                <div class="col-md-2 col-6 text-end">
-                    <input type="submit" value="Search" class="text-white main-bg main-btn btn p-1 ">
-                </div>
-            </form>
+          <form class="row shadow p-1 border-0" (submit)="search()">
+            <div class="col-md-10 col-7"> 
+              <label for="Search">
+                <i class="bi bi-geo-alt fw-4 fs-4 p-1"></i>
+              </label>
+              <input type="text" [(ngModel)]="searchquery" name="search" class="border-0 w-75 h-100 p-1" placeholder="Search By Name">
+            </div>
+            <div class="col-md-2 col-5 text-end">
+              <button type="submit" class="text-white main-bg main-btn btn p-3">
+                Search
+              </button>
+            </div>
+          </form>
+          
             <div class=" d-flex justify-content-center align-items-center flex-column fw-bold"> 
                 <p class="main-color header-bg p-3">POPULAR RENTAL DEALS</p>
                 <p class="fs-2 fw-bold">Most popular cars rental deals</p>
             </div>
-            <div class="row justify-content-between" id="showcars">
-                <!-- change data -->
-            <div class="card border-0 col-lg-3 col-md-6 col-12 shadow p-2 my-2" style="width: 18rem;">
-                <img loading="lazy"  src="../../assets/images/image 12.svg" class="card-img-top w-100 text-center p-3" alt="car-img">
-                <div class="card-body  ">
+            <div class="row justify-content-center" id="showcars">
+                <div
+                  class="card border-0 m-2 shadow"
+                  style="width: 18rem"
+                  *ngFor="let car of carlist"
+                >
+                  <img
+                    loading="lazy"
+                    [src]="car.image"
+                    class="card-img-top w-100 text-center p-3"
+                    [alt]="car.make"
+                  />
+                  <div class="card-body">
                     <!-- car name -->
-                <h5 class="card-title">Jaguar XE L P250</h5>
-                <!-- car rating -->
-                <p class="card-text"><i class="bi bi-star-fill b text-warning"></i> <span class="fw-bold mx-1">4.6</span> <span class="text-secondary"> (2.436 reviews)</span> </p>
-                <div class="row">
-                    <!-- car deatal -->
-                    <div class="col-md-6 text-secondary">
+                    <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+                    <!-- car rating -->
+                    <p class="card-text">
+                      <i class="bi bi-star-fill b text-warning"></i>
+                      <span class="fw-bold mx-1">4.6</span>
+                      <span class="text-secondary"> (2.436 reviews)</span>
+                    </p>
+                    <div class="row">
+                      <!-- car deatal -->
+                      <div class="col-md-6 text-secondary">
                         <p class="fs-6">
-                            <i class="bi bi-person "></i>
-                            4 passagers
+                          {{ car.color }}
                         </p>
-                        
+                      </div>
+                      <div class="col-md-6 text-secondary">
+                        <p class="fs-6">{{ car.horsepower }} hp</p>
+                      </div>
                     </div>
-                    <div class="col-md-6 text-secondary">
+                    <div class="row">
+                      <div class="col-md-6 text-secondary">
                         <p class="fs-6">
-                            <i class="bi bi-gear-fill "></i>
-                            Auto
+                          {{ car.year }}
                         </p>
+                      </div>
+            
+                      <div class="col-md-6 text-secondary">
+                        <p class="fs-6">{{ car.mileage }} km</p>
+                      </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-snow"></i>
-                            Air Conditioning
-                        </p>
+                    <!-- car price -->
+                    <div class="d-flex justify-content-between p-2 my-2 border-top">
+                      <p class="text-secondary-emphasis">pirce</p>
+                      <p class="fw-bold">
+                        {{ car.price }}<span class="text-secondary">/day</span>
+                      </p>
                     </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-door-open-fill"></i>
-                            4 doors
-                        </p>
+                    <!-- car show deatal -->
+                    <div class="d-flex justify-content-center">
+                      <a
+                        [routerLink]="['/car', car.id]"
+                        class="text-white main-bg main-btn btn w-75"
+                        >rent now</a
+                      >
                     </div>
+                  </div>
                 </div>
-                <!-- car price -->
-                <div class="d-flex justify-content-between  p-2 my-2 border-top">
-                    <p class="text-secondary-emphasis">pirce</p>
-                    <p class="fw-bold">$1,800  <span class="text-secondary">/day</span></p>
-                </div>
-                <!-- car show deatal -->
-                <div class="d-flex justify-content-center">
-                    <a routerLink="#" class="text-white main-bg main-btn btn w-75">rent now</a>
-                </div>
-                </div>
-            </div>
-            <!-- fake row -->
-            <div class="card border-0 col-lg-3 col-md-6 col-12 shadow p-2 my-2" style="width: 18rem;">
-                <img loading="lazy"  src="../../assets/images/image 12.svg" class="card-img-top w-100 text-center p-3" alt="car-img">
-                <div class="card-body  ">
-                    <!-- car name -->
-                <h5 class="card-title">Jaguar XE L P250</h5>
-                <!-- car rating -->
-                <p class="card-text"><i class="bi bi-star-fill b text-warning"></i> <span class="fw-bold mx-1">4.6</span> <span class="text-secondary"> (2.436 reviews)</span> </p>
-                <div class="row">
-                    <!-- car deatal -->
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-person "></i>
-                            4 passagers
-                        </p>
-                        
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-gear-fill "></i>
-                            Auto
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-snow"></i>
-                            Air Conditioning
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-door-open-fill"></i>
-                            4 doors
-                        </p>
-                    </div>
-                </div>
-                <!-- car price -->
-                <div class="d-flex justify-content-between  p-2 my-2 border-top">
-                    <p class="text-secondary-emphasis">pirce</p>
-                    <p class="fw-bold">$1,800  <span class="text-secondary">/day</span></p>
-                </div>
-                <!-- car show deatal -->
-                <div class="d-flex justify-content-center">
-                    <a routerLink="#" class="text-white main-bg main-btn btn w-75">rent now</a>
-                </div>
-                </div>
-            </div>
-            <div class="card border-0 col-lg-3 col-md-6 col-12 shadow p-2 my-2" style="width: 18rem;">
-                <img loading="lazy"  src="../../assets/images/image 12.svg" class="card-img-top w-100 text-center p-3" alt="car-img">
-                <div class="card-body  ">
-                    <!-- car name -->
-                <h5 class="card-title">Jaguar XE L P250</h5>
-                <!-- car rating -->
-                <p class="card-text"><i class="bi bi-star-fill b text-warning"></i> <span class="fw-bold mx-1">4.6</span> <span class="text-secondary"> (2.436 reviews)</span> </p>
-                <div class="row">
-                    <!-- car deatal -->
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-person "></i>
-                            4 passagers
-                        </p>
-                        
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-gear-fill "></i>
-                            Auto
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-snow"></i>
-                            Air Conditioning
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-door-open-fill"></i>
-                            4 doors
-                        </p>
-                    </div>
-                </div>
-                <!-- car price -->
-                <div class="d-flex justify-content-between  p-2 my-2 border-top">
-                    <p class="text-secondary-emphasis">pirce</p>
-                    <p class="fw-bold">$1,800  <span class="text-secondary">/day</span></p>
-                </div>
-                <!-- car show deatal -->
-                <div class="d-flex justify-content-center">
-                    <a routerLink="#" class="text-white main-bg main-btn btn w-75">rent now</a>
-                </div>
-                </div>
-            </div>
-            <div class="card border-0 col-lg-3 col-md-6 col-12 shadow p-2 my-2" style="width: 18rem;">
-                <img loading="lazy"  src="../../assets/images/image 12.svg" class="card-img-top w-100 text-center p-3" alt="car-img">
-                <div class="card-body  ">
-                    <!-- car name -->
-                <h5 class="card-title">Jaguar XE L P250</h5>
-                <!-- car rating -->
-                <p class="card-text"><i class="bi bi-star-fill b text-warning"></i> <span class="fw-bold mx-1">4.6</span> <span class="text-secondary"> (2.436 reviews)</span> </p>
-                <div class="row">
-                    <!-- car deatal -->
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-person "></i>
-                            4 passagers
-                        </p>
-                        
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-gear-fill "></i>
-                            Auto
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-snow"></i>
-                            Air Conditioning
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                            <i class="bi bi-door-open-fill"></i>
-                            4 doors
-                        </p>
-                    </div>
-                </div>
-                <!-- car price -->
-                <div class="d-flex justify-content-between  p-2 my-2 border-top">
-                    <p class="text-secondary-emphasis">pirce</p>
-                    <p class="fw-bold">$1,800  <span class="text-secondary">/day</span></p>
-                </div>
-                <!-- car show deatal -->
-                <div class="d-flex justify-content-center">
-                    <a routerLink="#" class="text-white main-bg main-btn btn w-75">rent now</a>
-                </div>
-                </div>
-            </div>
-        </div>
+              </div>
         <div class=" d-flex justify-content-center align-items-center  mt-5 "> 
-            <a routerLink="#" class="p-3 text-dark  fw-bold border ">Show all vehicles <i class="bi bi-arrow-right  mx-3"></i></a>
+            <a routerLink="/allcars" class="p-3 text-dark  fw-bold border ">Show all vehicles <i class="bi bi-arrow-right  mx-3"></i></a>
         </div>
               </div>
         

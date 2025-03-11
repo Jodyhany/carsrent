@@ -1,0 +1,72 @@
+<div class="container  my-5">
+    <a routerLink="/landing" class="btn main-btn main-bg rounded z-2 rounded mt-3  position-sticky top-0">back home</a>
+    <div class="row">
+        <section class="col-md-5">
+            <img src="../../assets/images/Audi 1.png" alt="car-header" class="w-100">
+        </section>
+        <div class="col-md-6 d-flex justify-content-center flex-column">
+            <div class="text-center">
+                <p class="main-color header-bg p-3"style="width: fit-content;">WHY CHOOSE US</p>
+                <p class="h3 text-wrap" style="width: 20rem;">We offer the best experience with our rental deals</p>
+            </div>
+            <div class="col-md-6 p-3 ">
+                <p class="fw-bold h2"> {{carinfo.model}}  {{carinfo.make}}</p>
+                <ul class="text-muted">
+                    <ol> engine:{{carinfo.engine}}</ol>
+                    <ol> features: {{carinfo.features}}</ol>
+                    <ol>fuelType: {{carinfo.fuelType}}</ol>
+                    <ol>horsepower:{{carinfo.horsepower}} hp</ol>
+                    <ol>mileage:{{carinfo.mileage}}km</ol>
+                    <ol>transmission:{{carinfo.transmission}}</ol>
+                    <ol>year:{{carinfo.year}}</ol>
+                </ul>
+                <p class="text-center fw-bold h4">price: {{carinfo.price}} /day</p>
+            </div>
+            <a routerLink="/allcars" class="btn main-btn main-bg rounded z-2 rounded mt-3 ">Show all cars</a>
+        </div>
+    </div>
+</div>
+<!-- 
+    color
+    : 
+"Red"
+engine
+: 
+"5.0L V8"
+features
+: 
+(3) ['Leather Seats', 'Navigation System', 'Heated Seats']
+fuelType
+: 
+"Gasoline"
+horsepower
+: 
+450
+id
+: 
+3
+image
+: 
+"https://fakeimg.pl/500x500/ff0000"
+make
+: 
+"Ford"
+mileage
+: 
+15000
+model
+: 
+"Mustang"
+owners
+: 
+1
+price
+: 
+35000
+transmission
+: 
+"Manual"
+year
+: 
+2020
+-->
