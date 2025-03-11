@@ -11,12 +11,12 @@ export class CarsService {
    this.getnumofcars()
   }
   getallcars():Observable<any>{
-   return this.http.get('/api/v1/cars')
+   return this.http.get('https://www.freetestapi.com/api/v1/cars')
   }
   getnumofcars():Observable<any>{
-   return this.http.get('/api/v1/cars?limit=4')
+   return this.http.get('https://www.freetestapi.com/api/v1/cars?limit=4')
   }
   getcarbyid(id:number):Observable<any>{
-   return this.http.get(`/api/v1/cars/${id}`)
+   return this.http.get(`https://www.freetestapi.com/api/v1/cars/${id}`)
   }
 }
