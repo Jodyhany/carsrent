@@ -1,6 +1,7 @@
     /* se bar redius */
     form{border-radius: 15px;} 
-    /*  */
+
+    #Search{outline: var(--main-color);}
     @media (max-width:767px) {
         #showcars{
         justify-content:center!important;

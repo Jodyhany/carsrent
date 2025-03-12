@@ -11,7 +11,7 @@
 }
 .app-icon{width: 8rem;}
 a{text-decoration: none;color: black;}
-a:hover{color: var(--main-color)!important;}
+a:hover{color: black!important;}
     .btn:hover{background-color: var(--main-color);}
 ::-webkit-scrollbar {
     width: 10px;

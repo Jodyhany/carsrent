@@ -6,3 +6,8 @@ header{background-image: url('../../assets/images/header-Frame.svg');  }
     width: 0.7rem;
     bottom: 0;
   }
+  @media (max-width:250px) {
+    .line::before{
+ right: 18rem;
+    }
+  }

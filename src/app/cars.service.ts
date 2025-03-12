@@ -6,17 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarsService {
+  carnum:number=0
+  searchcar:string=''
   constructor(private http:HttpClient) {
    this.getallcars()
-   this.getnumofcars()
+   this.getnumofcars(this.carnum)
+   this.getcarbysearch(this.searchcar)
   }
   getallcars():Observable<any>{
    return this.http.get('https://www.freetestapi.com/api/v1/cars')
   }
-  getnumofcars():Observable<any>{
-   return this.http.get('https://www.freetestapi.com/api/v1/cars?limit=4')
+  getnumofcars(carnum:number):Observable<any>{
+   return this.http.get(`https://www.freetestapi.com/api/v1/cars?limit=${carnum}`)
   }
   getcarbyid(id:number):Observable<any>{
    return this.http.get(`https://www.freetestapi.com/api/v1/cars/${id}`)
+  }
+  getcarbysearch(searchcar:string):Observable<any>{
+   return this.http.get(`https://www.freetestapi.com/api/v1/cars?search=${searchcar}`)
   }
 }

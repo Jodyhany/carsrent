@@ -5,7 +5,7 @@
               <label for="Search">
                 <i class="bi bi-geo-alt fw-4 fs-4 p-1"></i>
               </label>
-              <input type="text" [(ngModel)]="searchquery" name="search" class="border-0 w-75 h-100 p-1" placeholder="Search By Name">
+              <input type="text" (keypress)="search()" [(ngModel)]="searchquery" name="search" id="Search" class="border-0 w-75 h-100 p-1" placeholder="Search By Name">
             </div>
             <div class="col-md-2 col-5 text-end">
               <button type="submit" class="text-white main-bg main-btn btn p-3">
@@ -19,65 +19,132 @@
                 <p class="fs-2 fw-bold">Most popular cars rental deals</p>
             </div>
             <div class="row justify-content-center" id="showcars">
+              <ng-container *ngIf="searchstats==true && searchquery!=='' ;else defaultcars">
+                <ng-container *ngIf="carlistsearch.length==0 ">
+                  <p class="text-center p-1 h1 main-color">sorry this car unavaible at the moment check our avaible cars at showcars </p>
+                </ng-container>
+
                 <div
-                  class="card border-0 m-2 shadow"
-                  style="width: 18rem"
-                  *ngFor="let car of carlist"
-                >
-                  <img
-                    loading="lazy"
-                    [src]="car.image"
-                    class="card-img-top w-100 text-center p-3"
-                    [alt]="car.make"
-                  />
-                  <div class="card-body">
-                    <!-- car name -->
-                    <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
-                    <!-- car rating -->
-                    <p class="card-text">
-                      <i class="bi bi-star-fill b text-warning"></i>
-                      <span class="fw-bold mx-1">4.6</span>
-                      <span class="text-secondary"> (2.436 reviews)</span>
-                    </p>
-                    <div class="row">
-                      <!-- car deatal -->
-                      <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                          {{ car.color }}
-                        </p>
-                      </div>
-                      <div class="col-md-6 text-secondary">
-                        <p class="fs-6">{{ car.horsepower }} hp</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6 text-secondary">
-                        <p class="fs-6">
-                          {{ car.year }}
-                        </p>
-                      </div>
-            
-                      <div class="col-md-6 text-secondary">
-                        <p class="fs-6">{{ car.mileage }} km</p>
-                      </div>
-                    </div>
-                    <!-- car price -->
-                    <div class="d-flex justify-content-between p-2 my-2 border-top">
-                      <p class="text-secondary-emphasis">pirce</p>
-                      <p class="fw-bold">
-                        {{ car.price }}<span class="text-secondary">/day</span>
+                class="card border-0 m-2 shadow"
+                style="width: 18rem"
+                *ngFor="let car of carlistsearch"
+              >
+                <img
+                  loading="lazy"
+                  src="../../assets/images/logo.svg"
+                  class="card-img-top w-100 text-center p-3"
+                  [alt]="car.make"
+                />
+                <div class="card-body">
+                  <!-- car name -->
+                  <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+                  <!-- car rating -->
+                  <p class="card-text">
+                    <i class="bi bi-star-fill b text-warning"></i>
+                    <span class="fw-bold mx-1">4.6</span>
+                    <span class="text-secondary"> (2.436 reviews)</span>
+                  </p>
+                  <div class="row">
+                    <!-- car deatal -->
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">
+                        {{ car.color }}
                       </p>
                     </div>
-                    <!-- car show deatal -->
-                    <div class="d-flex justify-content-center">
-                      <a
-                        [routerLink]="['/car', car.id]"
-                        class="text-white main-bg main-btn btn w-75"
-                        >rent now</a
-                      >
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">{{ car.horsepower }} hp</p>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">
+                        {{ car.year }}
+                      </p>
+                    </div>
+          
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">{{ car.mileage }} km</p>
+                    </div>
+                  </div>
+                  <!-- car price -->
+                  <div class="d-flex justify-content-between p-2 my-2 border-top">
+                    <p class="text-secondary-emphasis">pirce</p>
+                    <p class="fw-bold">
+                      {{ car.price }}<span class="text-secondary">/day</span>
+                    </p>
+                  </div>
+                  <!-- car show deatal -->
+                  <div class="d-flex justify-content-center">
+                    <a
+                      [routerLink]="['/car', car.id]"
+                      class="text-white main-bg main-btn btn w-75"
+                      >rent now</a
+                    >
+                  </div>
                 </div>
+              </div>
+              </ng-container>
+              <ng-template #defaultcars> 
+                <div
+                class="card border-0 m-2 shadow"
+                style="width: 18rem"
+                *ngFor="let car of carlist"
+              >
+                <img
+                  loading="lazy"
+                  src="../../assets/images/logo.svg"
+                  class="card-img-top w-100 text-center p-3"
+                  [alt]="car.make"
+                />
+                <div class="card-body">
+                  <!-- car name -->
+                  <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+                  <!-- car rating -->
+                  <p class="card-text">
+                    <i class="bi bi-star-fill b text-warning"></i>
+                    <span class="fw-bold mx-1">4.6</span>
+                    <span class="text-secondary"> (2.436 reviews)</span>
+                  </p>
+                  <div class="row">
+                    <!-- car deatal -->
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">
+                        {{ car.color }}
+                      </p>
+                    </div>
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">{{ car.horsepower }} hp</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">
+                        {{ car.year }}
+                      </p>
+                    </div>
+          
+                    <div class="col-md-6 text-secondary">
+                      <p class="fs-6">{{ car.mileage }} km</p>
+                    </div>
+                  </div>
+                  <!-- car price -->
+                  <div class="d-flex justify-content-between p-2 my-2 border-top">
+                    <p class="text-secondary-emphasis">pirce</p>
+                    <p class="fw-bold">
+                      {{ car.price }}<span class="text-secondary">/day</span>
+                    </p>
+                  </div>
+                  <!-- car show deatal -->
+                  <div class="d-flex justify-content-center">
+                    <a
+                      [routerLink]="['/car', car.id]"
+                      class="text-white main-bg main-btn btn w-75"
+                      >rent now</a
+                    >
+                  </div>
+                </div>
+              </div>
+                 </ng-template>
               </div>
         <div class=" d-flex justify-content-center align-items-center  mt-5 "> 
             <a routerLink="/allcars" class="p-3 text-dark  fw-bold border ">Show all vehicles <i class="bi bi-arrow-right  mx-3"></i></a>
