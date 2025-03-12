@@ -6,8 +6,10 @@ header{background-image: url('../../assets/images/header-Frame.svg');  }
     width: 0.7rem;
     bottom: 0;
   }
-  @media (max-width:250px) {
+  @media (min-width: 250px) and (max-width: 310px)  {
     .line::before{
  right: 18rem;
     }
   }
+      /* 250
+    310 */
