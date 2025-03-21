@@ -9,64 +9,22 @@
                 <p class="main-color header-bg p-3"style="width: fit-content;">WHY CHOOSE US</p>
                 <p class="h3 text-wrap" style="width: 20rem;">We offer the best experience with our rental deals</p>
             </div>
-            <div class="col-md-6 p-3 ">
+            <div class="col-md-6 p-3 main-color ">
                 <p class="fw-bold h2"> {{carinfo.model}}  {{carinfo.make}}</p>
-                <ul class="text-muted">
-                    <ol> engine:{{carinfo.engine}}</ol>
-                    <ol> features: {{carinfo.features}}</ol>
-                    <ol>fuelType: {{carinfo.fuelType}}</ol>
-                    <ol>horsepower:{{carinfo.horsepower}} hp</ol>
-                    <ol>mileage:{{carinfo.mileage}}km</ol>
-                    <ol>transmission:{{carinfo.transmission}}</ol>
-                    <ol>year:{{carinfo.year}}</ol>
+                <ul class="text-dark">
+                    <li> engine:{{carinfo.engine}}</li>
+                    <li> features: <ul *ngFor="let featur of carinfo.features; let i =index ">
+                        <li>{{i+1}} -{{featur}}</li>
+                    </ul> </li>
+                    <li>fuelType: {{carinfo.fuelType}}</li>
+                    <li>horsepower:{{carinfo.horsepower}} hp</li>
+                    <li>mileage:{{carinfo.mileage}}km</li>
+                    <li>transmission:{{carinfo.transmission}}</li>
+                    <li>year:{{carinfo.year}}</li>
                 </ul>
-                <p class="text-center fw-bold h4">price: {{carinfo.price}} /day</p>
+                <p class="text-center fw-bold h4 text-dark">price: <span class="main-color"> {{carinfo.price |currency: '' }} </span> /day</p>
             </div>
             <a routerLink="/allcars" class="btn main-btn main-bg rounded z-2 rounded mt-3 ">Show all cars</a>
         </div>
     </div>
 </div>
-<!-- 
-    color
-    : 
-"Red"
-engine
-: 
-"5.0L V8"
-features
-: 
-(3) ['Leather Seats', 'Navigation System', 'Heated Seats']
-fuelType
-: 
-"Gasoline"
-horsepower
-: 
-450
-id
-: 
-3
-image
-: 
-"https://fakeimg.pl/500x500/ff0000"
-make
-: 
-"Ford"
-mileage
-: 
-15000
-model
-: 
-"Mustang"
-owners
-: 
-1
-price
-: 
-35000
-transmission
-: 
-"Manual"
-year
-: 
-2020
--->

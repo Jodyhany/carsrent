@@ -1,26 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarsService } from '../cars.service';
 import { Observable } from 'rxjs';
+import { carde } from '../car-info';
 
 @Component({
   selector: 'app-recentcars',
   templateUrl: './recentcars.component.html',
   styleUrls: ['./recentcars.component.css']
 })
-export class RecentcarsComponent {
-  carlist:any
+export class RecentcarsComponent implements OnInit{
+  carlist:carde[]=[]
   carlistsearch:any
   searchquery:string=''
   carnum:number=4
   searchstats:boolean=false
   nocarfound:boolean=false
 constructor(private mycars:CarsService){
+  
+}
+ngOnInit(): void {
   this.getsomecar()
   this.search()
 }
 getsomecar():void{
   this.mycars.getnumofcars(this.carnum).subscribe({
     next:(res)=>{
+      console.log()
       this.carlist =res
     }
   })

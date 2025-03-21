@@ -23,7 +23,7 @@
         class="card-img-top w-100 text-center p-3"
         [alt]="car.make"
       />
-      <div class="card-body">
+      <div  [routerLink]="['/car', car.id]" class="card-body main-color">
         <!-- car name -->
         <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
         <!-- car rating -->
@@ -32,33 +32,33 @@
           <span class="fw-bold mx-1">4.6</span>
           <span class="text-secondary"> (2.436 reviews)</span>
         </p>
-        <div class="row">
+        <div class="row m">
           <!-- car deatal -->
           <div class="col-md-6 text-secondary">
             <p class="fs-6">
-              {{ car.color }}
+             color: {{ car.color }}
             </p>
           </div>
           <div class="col-md-6 text-secondary">
-            <p class="fs-6">{{ car.horsepower }} hp</p>
+            <p class="fs-6">power: {{ car.horsepower }} hp</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 text-secondary">
             <p class="fs-6">
-              {{ car.year }}
+             year: {{ car.year }}
             </p>
           </div>
 
           <div class="col-md-6 text-secondary">
-            <p class="fs-6">{{ car.mileage }} km</p>
+            <p class="fs-6">{{ car.mileage|number:'1.'}} km
           </div>
         </div>
         <!-- car price -->
         <div class="d-flex justify-content-between p-2 my-2 border-top">
           <p class="text-secondary-emphasis">pirce</p>
           <p class="fw-bold">
-            {{ car.price }}<span class="text-secondary">/day</span>
+            {{ car.price |currency: '' }}<span class="text-secondary">/day</span>
           </p>
         </div>
         <!-- car show deatal -->
